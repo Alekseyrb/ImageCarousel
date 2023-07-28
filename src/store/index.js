@@ -3,18 +3,10 @@ import { createStore } from 'vuex';
 export default createStore({
     state: {
         images: [],
-        selectedImages: [],
     },
     mutations: {
         setImages(state, images) {
             state.images = images;
-        },
-        toggleSelectedImage(state, { image, selected }) {
-            if (selected) {
-                state.selectedImages.push(image);
-            } else {
-                state.selectedImages = state.selectedImages.filter((i) => i.id !== image.id);
-            }
         },
     },
     actions: {

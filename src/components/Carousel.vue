@@ -149,7 +149,7 @@ export default {
   transition: all 0.3s ease;
 }
 
-.slide-fade-enter, .slide-fade-leave-to /* .slide-fade-leave-active in <2.1.8 */ {
+.slide-fade-enter, .slide-fade-leave-to {
   opacity: 0;
   transform: translateX(20px);
 }
