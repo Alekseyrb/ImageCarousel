@@ -1,5 +1,5 @@
 <template>
-  <div className="app">
+  <div class="app">
     <h2>Image Carousel</h2>
     <Carousel :images="images"/>
   </div>
