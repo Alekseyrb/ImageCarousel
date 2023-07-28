@@ -1,4 +1,5 @@
 import { createStore } from 'vuex';
+import axios from 'axios';
 
 export default createStore({
     state: {
@@ -12,10 +13,14 @@ export default createStore({
     actions: {
         async fetchImages({ commit }) {
             try {
-                const response = await fetch('https://picsum.photos/v2/list?page=2&limit=100');
-                const images = await response.json();
-                commit('setImages', images);
-                return images;
+                const url = 'https://picsum.photos/v2/list';
+                const params = {
+                    page: 2,
+                    limit: 100,
+                };
+                const { data } = await axios.get(url, { params });
+                commit('setImages', data);
+                return data;
             } catch (error) {
                 console.error('Error fetching images:', error);
                 return [];

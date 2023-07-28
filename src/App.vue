@@ -1,6 +1,6 @@
 <template>
-  <div class="app">
-    <h2>Карусель изображений</h2>
+  <div className="app">
+    <h2>Image Carousel</h2>
     <Carousel :images="images"/>
   </div>
 </template>
@@ -19,9 +19,14 @@ export default {
     };
   },
   created() {
-    store.dispatch('fetchImages').then((images) => {
-      this.images = images;
-    });
+    this.fetchImagesData();
+  },
+  methods: {
+    fetchImagesData() {
+      store.dispatch('fetchImages').then((images) => {
+        this.images = images;
+      });
+    },
   },
 };
 </script>
